@@ -4,3 +4,6 @@
 
 # ignore custom folders
 .vscode/
+
+# ignore executable
+parser
