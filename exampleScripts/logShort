@@ -1,0 +1,122 @@
+Waf: Entering directory `/home/tesc_tm/DLR/scratch/negev/build'
+[ 1/90] Processing src/SpatialDiscretization/Instantiations.cppgen
+[ 2/90] Processing src/LinearSolver/Instantiations.cppgen
+[ 3/90] Processing py/Flucs.i
+[ 4/90] Processing tools/doxygen/Flucs.doxy
+[ 5/90] Compiling infrastructure/src/Preprocessing/PreprocessingParameters.cpp
+[ 6/90] Compiling infrastructure/src/Parallel/CommunicationBuffersGASPI.cpp
+[ 7/90] Compiling infrastructure/src/DiscreteEquation/ClosureWrapperParaBase.cpp
+[ 8/90] Compiling infrastructure/src/Common/ErrorHandling.cpp
+[ 9/90] Compiling infrastructure/src/Preprocessing/OversetGridsProcessor.cpp
+[10/90] Compiling infrastructure/src/Preprocessing/OversetGridsParameters.cpp
+[11/90] Compiling infrastructure/src/Parallel/CommunicationBuffersBase.cpp
+[12/90] Compiling infrastructure/src/Preprocessing/MeshConsistency.cpp
+[13/90] Compiling infrastructure/src/TimeIntegration/TimeStepFactory.cpp
+[14/90] Compiling infrastructure/src/Preprocessing/FaceBasedMeshAdapter.cpp
+[15/90] Compiling infrastructure/src/Distributed/OversetGridsCommunication.cpp
+[16/90] Compiling infrastructure/src/DiscreteEquation/BoundaryTreatmentParaNamesBase.cpp
+[17/90] Compiling infrastructure/src/TimeIntegration/TimeIntegrationFactory.cpp
+[18/90] Compiling infrastructure/src/Parameter/Node.cpp
+[ 19/102] Compiling infrastructure/src/TimeIntegration/NestingTimeIntegrationBase.cpp
+[ 20/102] Compiling build/src/LinearSolver/InstantiationJacobi0.cpp
+[ 21/102] Compiling build/src/SpatialDiscretization/InstantiationFVEulerUpwindingRoe.cpp
+[ 22/102] Compiling build/src/LinearSolver/InstantiationJacobi5.cpp
+[ 23/102] Compiling build/src/SpatialDiscretization/InstantiationFVRANSSAnegUpwindingRoe.cpp
+[ 24/102] Compiling build/src/SpatialDiscretization/InstantiationDG1NavierStokesUpwindingRoe.cpp
+[ 25/103] Compiling build/src/SpatialDiscretization/InstantiationDG1RANSSAnegUpwindingRoe.cpp
+[ 26/103] Compiling build/src/SpatialDiscretization/InstantiationDG0EulerUpwindingRoe.cpp
+[ 27/103] Compiling build/src/SpatialDiscretization/InstantiationDG1EulerUpwindingRoe.cpp
+/home/tesc_tm/DLR/scratch/negev/include/DiscreteEquation/PerfectGasBase.hpp:47: warning: argument 'paras' of command @param is not found in the argument list of flucs::PerfectGas< PDEType >::PerfectGasBase(class ReferenceDataType, class MeshType)
+/home/tesc_tm/DLR/scratch/negev/include/DiscreteEquation/PerfectGasBase.hpp:47: warning: argument 'refData' of command @param is not found in the argument list of flucs::PerfectGas< PDEType >::PerfectGasBase(class ReferenceDataType, class MeshType)
+/home/tesc_tm/DLR/scratch/negev/include/DiscreteEquation/PerfectGasBase.hpp:47: warning: argument 'meshPointer' of command @param is not found in the argument list of flucs::PerfectGas< PDEType >::PerfectGasBase(class ReferenceDataType, class MeshType)
+/home/tesc_tm/DLR/scratch/negev/include/DiscreteEquation/PerfectGasBase.hpp:47: warning: argument 'paras' of command @param is not found in the argument list of flucs::PerfectGasRot< PDEType, MeshType >::PerfectGasBase(class ReferenceDataType, class MeshType)
+/home/tesc_tm/DLR/scratch/negev/include/DiscreteEquation/PerfectGasBase.hpp:47: warning: argument 'refData' of command @param is not found in the argument list of flucs::PerfectGasRot< PDEType, MeshType >::PerfectGasBase(class ReferenceDataType, class MeshType)
+/home/tesc_tm/DLR/scratch/negev/include/DiscreteEquation/PerfectGasBase.hpp:47: warning: argument 'meshPointer' of command @param is not found in the argument list of flucs::PerfectGasRot< PDEType, MeshType >::PerfectGasBase(class ReferenceDataType, class MeshType)
+[ 28/103] Compiling build/src/LinearSolver/InstantiationJacobi6.cpp
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+(./_formulas.tex
+LaTeX2e <2018-04-01> patch level 5
+
+[ 29/103] Compiling build/src/LinearSolver/InstantiationJacobi20.cpp
+[ 30/103] Compiling build/src/LinearSolver/InstantiationJacobi24.cpp
+[ 31/103] Compiling build/src/SpatialDiscretization/InstantiationFVNavierStokesUpwindingRoe.cpp
+[ 32/103] Compiling build/py/Flucs.swigwrap_2.cxx
+[ 33/103] Compiling infrastructure/src/TimeIntegration/PredefinedButcherTableaus.cpp
+[ 34/103] Compiling infrastructure/src/TimeIntegration/InnermostTimeIntegrationBase.cpp
+[ 35/103] Compiling infrastructure/src/DiscreteEquation/BoundaryIntegralValues.cpp
+[ 36/103] Compiling infrastructure/src/SpatialDiscretization/DiscretizationParaBase.cpp
+[ 37/103] Compiling infrastructure/src/SpatialDiscretization/DiscretizationSelectionPara.cpp
+[ 38/103] Compiling infrastructure/src/Parameter/DiscriminatedGroupNode.cpp
+[ 39/103] Compiling infrastructure/src/Common/VariableIdentifier.cpp
+[ 40/103] Compiling infrastructure/src/DiscreteEquation/ReferenceData.cpp
+[ 41/103] Compiling infrastructure/src/TimeIntegration/IterationCallbacksForMonitoring.cpp
+[ 42/103] Compiling infrastructure/src/TimeIntegration/IterationCallbackInterface.cpp
+[ 43/103] Compiling infrastructure/src/Parallel/ThreadedCommunicationContext.cpp
+[ 44/103] Compiling infrastructure/src/SpatialDiscretization/Instantiations.cpp
+[ 45/103] Compiling infrastructure/src/Parallel/Threading.cpp
+[ 46/103] Compiling infrastructure/src/TimeIntegration/ButcherTableau.cpp
+[ 47/103] Compiling infrastructure/src/Parallel/CommunicationBuffersMPI.cpp
+[ 48/103] Compiling infrastructure/src/Distributed/FaceBasedMeshPreprocessingArguments.cpp
+[ 49/103] Compiling infrastructure/src/TimeIntegration/ButcherTableauFactory.cpp
+[ 50/103] Compiling infrastructure/src/TimeIntegration/TimeStep.cpp
+[ 51/103] Compiling infrastructure/src/Parameter/GroupNode.cpp
+[ 52/103] Compiling infrastructure/src/TimeIntegration/CompositeIterationCallback.cpp
+[ 53/103] Compiling infrastructure/src/TimeIntegration/TimeIntegrationBase.cpp
+[ 54/103] Compiling infrastructure/src/TimeIntegration/IterationCallbacksForStopping.cpp
+[ 55/103] Compiling infrastructure/src/Distributed/FSDataTransfer.cpp
+[ 56/103] Compiling infrastructure/src/Parallel/UtilsMPI.cpp
+[ 57/103] Compiling infrastructure/src/Parameter/ParameterHelper.cpp
+[ 58/103] Compiling infrastructure/src/Parallel/GaspiUtils.cpp
+[ 59/103] Compiling infrastructure/src/TimeIntegration/DIRKTimeDiscretization.cpp
+[ 60/103] Compiling infrastructure/src/Preprocessing/Preprocessor.cpp
+[ 61/103] Compiling infrastructure/src/TimeIntegration/DiagonallyImplicitRungeKutta.cpp
+[ 62/103] Compiling infrastructure/src/ReferenceElement/DistanceFromSurfaceElement.cpp
+[ 63/103] Compiling infrastructure/src/ReferenceElement/NodalBasisFunctions.cpp
+[ 64/103] Compiling infrastructure/src/Distributed/Instantiations.cpp
+[ 65/103] Compiling infrastructure/src/Parameter/ArrayNode.cpp
+[ 66/103] Compiling infrastructure/src/DiscreteEquation/DomainIntegralQuantities.cpp
+[ 67/103] Compiling infrastructure/src/ReferenceElement/Quadrature.cpp
+[ 68/103] Compiling infrastructure/src/TimeIntegration/ExplicitRungeKutta.cpp
+[ 69/103] Compiling infrastructure/src/SpatialDiscretization/DiscretizationFactory.cpp
+[ 70/103] Compiling infrastructure/src/Parallel/SynchronizingEvent.cpp
+[ 71/103] Compiling src/LinearSolver/Instantiations.cpp
+[ 72/103] Compiling src/DiscreteEquation/EddyViscosityParaBase.cpp
+[ 73/103] Compiling src/DiscreteEquation/CompressibleFlowBoundaryIntegralQuantities.cpp
+[ 74/103] Compiling src/DiscreteEquation/ThermodynamicRelationsParaBase.cpp
+[ 75/103] Compiling src/SpatialDiscretization/FaceIntegrationDiscretizationParaBase.cpp
+[ 76/103] Compiling src/SpatialDiscretization/GreenGaussGradient.cpp
+[ 77/103] Compiling src/SpatialDiscretization/ConvectionSchemeUpwindingLLF.cpp
+[ 78/103] Compiling src/SpatialDiscretization/ConvectionSchemeParaBase.cpp
+[ 79/103] Compiling src/TimeIntegration/ImplicitEuler.cpp
+[ 80/103] Compiling src/SpatialDiscretization/BarthJespersenPara.cpp
+[ 81/103] Compiling src/DiscreteEquation/PhysicalVariables.cpp
+[ 82/103] Linking build/libFlis.so
+[ 83/103] Compiling src/SpatialDiscretization/ConvectionSchemeUpwindingRoe.cpp
+[ 84/103] Compiling src/SpatialDiscretization/VenkatakrishnanPara.cpp
+[ 85/103] Compiling src/SpatialDiscretization/LinearReconstruction.cpp
+[ 86/103] Compiling src/DiscreteEquation/ForceCoefficientsParaBase.cpp
+[ 87/103] Compiling src/LinearSolver/LinearSolverFactory.cpp
+[ 88/103] Compiling src/DiscreteEquation/ReferenceDataRANSParaBase.cpp
+[ 89/103] Compiling src/DiscreteEquation/BoundaryTreatmentParaNames.cpp
+[ 90/103] Compiling src/DiscreteEquation/CompressibleFlowDomainIntegralQuantities.cpp
+[ 91/103] Compiling src/DiscreteEquation/PerfectGasParaBase.cpp
+[ 92/103] Compiling src/SpatialDiscretization/NullPara.cpp
+[ 93/103] Compiling src/SpatialDiscretization/SplineQuinticPara.cpp
+[ 94/103] Compiling src/SpatialDiscretization/DGDiscretizationParaBase.cpp
+[ 95/103] Compiling src/SpatialDiscretization/FiniteVolumeDiscretizationParaBase.cpp
+[ 96/103] Compiling src/DiscreteEquation/SutherlandParaBase.cpp
+[ 97/103] Compiling src/SpatialDiscretization/ConstantReconstruction.cpp
+[ 98/103] Compiling src/SpatialDiscretization/PrepareFaceBasedComputationalMesh.cpp
+[ 99/103] Compiling src/SpatialDiscretization/LeastSquaresGradient.cpp
+[100/103] Compiling src/SpatialDiscretization/LimitedLinearReconstruction.cpp
+[101/103] Compiling src/DiscreteEquation/ReferenceDataMeanFlowParaBase.cpp
+[102/103] Linking build/libFlucs.so
+[103/103] Linking build/py/_Flucs.so
+[104/104] Compiling build/py/Flucs.pyc
+Waf: Leaving directory `/home/tesc_tm/DLR/scratch/negev/build'
+'build' finished successfully (2m14.997s)
+
+Terminal will be reused by tasks, press any key to close it.
+cat: 2: No such file or directory

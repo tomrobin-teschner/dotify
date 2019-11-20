@@ -1,0 +1,40 @@
+{
+  "ignoreLineContainingSubstring" :
+  [
+    "negev/include/DiscreteEquation/PerfectGasBase.hpp",
+    "This is pdfTeX, Version",
+    "restricted \\write18 enabled",
+    "entering extended mode",
+    "_formulas.tex",
+    "LaTeX2e <2018-04-01> patch level 5"
+  ],
+
+  "lineStyle" :
+  [
+    {
+      "keyword" : "warning",
+      "gatherStatistics" : true,
+      "applyStyle" : "OnKeyword",
+      "color" : "purple",
+      "style" : "bold"
+    },
+    {
+      "keyword" : "error",
+      "gatherStatistics" : true,
+      "applyStyle" : "OnKeyword",
+      "color" : "red",
+      "style" : "bold"
+    },
+    {
+      "keyword" : "Compiling",
+      "applyStyle" : "PostKeyword",
+      "color" : "green"
+    },
+    {
+      "keyword" : "Waf: Leaving directory",
+      "applyStyle" : "Everywhere",
+      "color" : "red",
+      "style" : "bold"
+    }
+  ]
+}
