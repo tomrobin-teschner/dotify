@@ -5,7 +5,7 @@ APP_NAME = parser
 CXX = g++
 
 ### compiler flags
-CXXFLAGS = -c -std=c++11
+CXXFLAGS = -c -std=c++11 -MMD -MF $*.d -I.
 
 ### linker flags
 LXXFLAGS =
@@ -15,6 +15,7 @@ LXXFLAGS =
 SRC = $(shell find -wholename "**/*.cpp" | grep "src/")
 INC = $(patsubst %,-I %,$(shell find include/ -type d))
 OBJ = $(subst .cpp,.o,$(SRC))
+DEP = $(subst .cpp,.d,$(SRC))
 
 ### ---------------------------------------------------------------------------
 
@@ -36,4 +37,7 @@ $(LIB_NAME): $(OBJ)
 
 .PHONY: clean
 clean:
-	rm -f $(OBJ) bin/*~ lib/*~ bin/$(APP_NAME)
+	rm -f $(OBJ) bin/*~ lib/*~ bin/$(APP_NAME) $(DEP)
+
+### include dependency files
+-include $(OBJ:.o=.d)
