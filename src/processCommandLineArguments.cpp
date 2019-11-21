@@ -34,7 +34,7 @@ void processCommandLineArguments::setArguments()
   }
 }
 
-std::string processCommandLineArguments::getStyleFile() const
+std::string processCommandLineArguments::getLocationOfStyleFile() const
 {
   assert(_jsonFile.length() != 0);
   return _jsonFile;

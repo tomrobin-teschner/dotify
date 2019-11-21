@@ -14,7 +14,7 @@ class fileReader
     void read();
 
     /// get the processed json object
-    const nlohmann::json &getJSON() const;
+    const nlohmann::json &getParameters() const;
 
   private:
     /// filename and location of the style file
