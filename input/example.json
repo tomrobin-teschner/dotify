@@ -19,27 +19,78 @@
   "styleLineContainingKeywords" :
   [
     {
+      "keyword" : "Processing",
+      "applyStyle" : "postKeyword",
+      "color" : "blue",
+      "style" : "bold"
+    },
+    {
+      "keyword" : "Compiling",
+      "applyStyle" : "postKeyword",
+      "color" : "green"
+    },
+    {
+      "keyword" : "Linking",
+      "applyStyle" : "postKeyword",
+      "color" : "yellow"
+    },
+    {
+      "keyword" : "Waf: Entering directory",
+      "applyStyle" : "everywhere",
+      "color" : "green"
+    },
+    {
+      "keyword" : "Waf: Leaving directory",
+      "applyStyle" : "everywhere",
+      "color" : "green"
+    },
+    {
+      "keyword" : "finished successfully",
+      "applyStyle" : "everywhere",
+      "color" : "green"
+    },
+    {
+      "keyword" : "Build failed",
+      "applyStyle" : "everywhere",
+      "color" : "red",
+      "style" : "bold"
+    },
+    {
+      "keyword" : "failed with exit status",
+      "applyStyle" : "everywhere",
+      "color" : "red",
+      "style" : "bold"
+    },
+    {
+      "keyword" : "Terminal will be reused by tasks, press any key to close it.",
+      "applyStyle" : "everywhere",
+      "style" : "bold"
+    },
+    {
+      "keyword" : "required from",
+      "gatherStatistics" : true,
+      "applyStyle" : "onKeyword",
+      "color" : "blue",
+      "style" : "bold"
+    },
+    {
+      "keyword" : "In instantiation",
+      "gatherStatistics" : true,
+      "applyStyle" : "onKeyword",
+      "color" : "blue",
+      "style" : "bold"
+    },
+    {
       "keyword" : "warning",
       "gatherStatistics" : true,
-      "applyStyle" : "OnKeyword",
+      "applyStyle" : "onKeyword",
       "color" : "purple",
       "style" : "bold"
     },
     {
       "keyword" : "error",
       "gatherStatistics" : true,
-      "applyStyle" : "OnKeyword",
-      "color" : "red",
-      "style" : "bold"
-    },
-    {
-      "keyword" : "Compiling",
-      "applyStyle" : "PostKeyword",
-      "color" : "green"
-    },
-    {
-      "keyword" : "Waf: Leaving directory",
-      "applyStyle" : "Everywhere",
+      "applyStyle" : "onKeyword",
       "color" : "red",
       "style" : "bold"
     }
