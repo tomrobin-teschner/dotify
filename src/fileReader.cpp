@@ -16,7 +16,7 @@ void fileReader::read()
   jsonObject = nlohmann::json::parse(content);
 }
 
-const nlohmann::json &fileReader::getJSON() const
+const nlohmann::json &fileReader::getParameters() const
 {
   return jsonObject;
 }

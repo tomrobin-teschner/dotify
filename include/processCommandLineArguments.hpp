@@ -23,7 +23,7 @@ class processCommandLineArguments
     }
 
     /// get the path and name of the json file
-    std::string getStyleFile() const;
+    std::string getLocationOfStyleFile() const;
 
   private:
     /// print help to screen
