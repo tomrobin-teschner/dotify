@@ -3,7 +3,8 @@
 
 #include <string>
 
-struct color {
+struct color
+{
   // define color modifier
   static std::string WHITE;
   static std::string RED;

@@ -5,8 +5,8 @@
 
 #include "include/jsonParser.hpp"
 
-class fileReader {
-
+class fileReader
+{
   public:
     fileReader(std::string filename) : _filename(filename) { }
 

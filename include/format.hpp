@@ -3,7 +3,8 @@
 
 #include <string>
 
-struct format {
+struct format
+{
   // define format modifier
   static std::string NORMAL;
   static std::string BOLD;

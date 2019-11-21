@@ -4,8 +4,8 @@
 #include <iostream>
 #include <string>
 
-class processCommandLineArguments {
-
+class processCommandLineArguments
+{
   public:
     processCommandLineArguments(unsigned numArguments, char **arguments) : _numArguments(numArguments),
       _arguments(arguments)
