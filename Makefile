@@ -5,7 +5,7 @@ APP_NAME = parser
 CXX = g++
 
 ### compiler flags
-CXXFLAGS = -c -std=c++11 -MMD -MF $*.d -I.
+CXXFLAGS = -c -std=c++14 -MMD -MF $*.d -I.
 
 ### linker flags
 LXXFLAGS =
