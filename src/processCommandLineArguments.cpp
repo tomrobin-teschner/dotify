@@ -5,9 +5,6 @@
 
 void processCommandLineArguments::printHelp()
 {
-  std::cout << "Copyright 2019 by Tom-Robin Teschner" << std::endl;
-  std::cout << "License: CC-BY 4.0" << std::endl;
-  std::cout << std::endl;
   std::cout << "This program removes unwanted strings from screen while reformating strings of interest" << std::endl;
   std::cout << std::endl;
   std::cout << "Usage: To invoke the parser on a text file use" << std::endl;
