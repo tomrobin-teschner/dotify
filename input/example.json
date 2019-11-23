@@ -68,14 +68,12 @@
     },
     {
       "keyword" : "required from",
-      "gatherStatistics" : true,
       "applyStyle" : "onKeyword",
       "color" : "blue",
       "style" : "bold"
     },
     {
       "keyword" : "In instantiation",
-      "gatherStatistics" : true,
       "applyStyle" : "onKeyword",
       "color" : "blue",
       "style" : "bold"

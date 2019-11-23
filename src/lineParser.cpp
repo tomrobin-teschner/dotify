@@ -88,7 +88,7 @@ void lineParser::applyLineFormating(const styling &style, std::string &line) con
       line = line.substr(0, position + length) + lineStyle + color + line.substr(position + length) + format::NORMAL +
         color::WHITE;
     else if (applyAtLocation == std::string("everywhere"))
-      line = color + lineStyle + line + format::NORMAL + color::WHITE;
+      line = lineStyle + color + line + format::NORMAL + color::WHITE;
   }
   // auto pos   = line.find("Processing");
   // int length = 10;
