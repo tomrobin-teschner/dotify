@@ -69,12 +69,14 @@
     {
       "keyword" : "required from",
       "applyStyle" : "onKeyword",
+      "surpressKeyword" : true,
       "color" : "blue",
       "style" : "bold"
     },
     {
       "keyword" : "In instantiation",
       "applyStyle" : "onKeyword",
+      "surpressKeyword" : true,
       "color" : "blue",
       "style" : "bold"
     },
@@ -82,7 +84,7 @@
       "keyword" : "warning",
       "gatherStatistics" : true,
       "applyStyle" : "onKeyword",
-      "color" : "purple",
+      "color" : "magenta",
       "style" : "bold"
     },
     {

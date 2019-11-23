@@ -25,15 +25,17 @@ class lineParser
         assert(entry.count("applyStyle") != 0 && "No style defined in styleLineContainingKeywords");
 
         const std::string keyword = entry["keyword"];
-        const bool gatherStatistics = entry.count("gatherStatistics") == 0 ? false :
+        const bool gatherStatistics = entry.count("gatherStatistics") == 0 ? false : 
           static_cast<const bool>(entry["gatherStatistics"]);
         const std::string applyStyle = entry["applyStyle"];
         const std::string color = entry.count("color") == 0 ? std::string("white") :
           static_cast<const std::string>(entry["color"]);
         const std::string style = entry.count("style") == 0 ? std::string("normal") :
           static_cast<const std::string>(entry["style"]);
+        const bool surpressKeyword = entry.count("surpressKeyword") == 0 ? false :
+          static_cast<const bool>(entry["surpressKeyword"]);
 
-        _keywordToStyle.push_back(styling(keyword, gatherStatistics, applyStyle, color, style));
+        _keywordToStyle.push_back(styling(keyword, gatherStatistics, applyStyle, color, style, surpressKeyword));
       }
 
       for (const auto entry : _jsonArgs["ignoreContentBetweenDelimiter"])
@@ -56,7 +58,7 @@ class lineParser
     void checkForAnyDelimiterInCurrentLine(std::string &line) const;
 
     /// check if the current line requires formating
-    void checkIfStringRequiresStyleAdjustment(std::string &line) const;
+    void checkIfStringRequiresStyleAdjustment(std::string &line, bool &containsKeyword, bool &surpressKeyword) const;
 
   private:
     /// check if the current line contains delimiter between which the content is supposed to be removed
@@ -64,7 +66,8 @@ class lineParser
       const std::string &replaceBy, std::string &line) const;
 
     /// apply color and formating to line
-    void applyLineFormating(const styling &style, std::string &line) const;
+    void applyLineFormating(const styling &style, std::string &line, bool &containsKeyword, bool &surpressKeyword)
+      const;
 
   private:
     /// the json object containing all required styling information

@@ -25,6 +25,9 @@ class processCommandLineArguments
     /// get the path and name of the json file
     std::string getLocationOfStyleFile() const;
 
+    /// get the keywords only flag
+    bool getKeywordsOnlyFlag() const;
+
   private:
     /// print help to screen
     void printHelp();
@@ -41,6 +44,9 @@ class processCommandLineArguments
 
     /// path and filename of JSON file
     std::string _jsonFile = "";
+
+    /// flag indicating that only keywords should be printed
+    bool _keywordsOnly = false;
 };
 
 #endif

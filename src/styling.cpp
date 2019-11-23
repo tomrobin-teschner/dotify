@@ -55,3 +55,13 @@ const std::string &styling::getStyle() const
   else
     return format::NORMAL;
 }
+
+const bool &styling::getSurpressKeywordFlag() const
+{
+  return _surpressKeyword;
+}
+
+void styling::writeLineContainingKeyword(std::string line) const
+{
+  _occurances.push_back(line);
+}

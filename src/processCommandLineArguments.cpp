@@ -18,8 +18,9 @@ void processCommandLineArguments::printHelp()
   std::cout << std::endl;
   std::cout << "If the intermediate log file is not required, the tee command may be ommitted." << std::endl;
   std::cout << std::endl;
-  std::cout << "-h, --help:     Prints this help section" << std::endl;
-  std::cout << "-f, --file:     JSON file containing formating instructions" << std::endl;
+  std::cout << "-h,  --help:             Prints this help section" << std::endl;
+  std::cout << "-f,  --file:             JSON file containing formating instructions" << std::endl;
+  std::cout << "-k,  --keywordsOnly:     Only output string to terminal which contain keywords" << std::endl;
 }
 
 void processCommandLineArguments::setArguments()
@@ -28,6 +29,8 @@ void processCommandLineArguments::setArguments()
   {
     if (std::string(_arguments[argIndex]) == "-f" || std::string(_arguments[argIndex]) == "--file")
       _jsonFile = _arguments[argIndex + 1];
+    if (std::string(_arguments[argIndex]) == "-k" || std::string(_arguments[argIndex]) == "--keywordsOnly")
+      _keywordsOnly = true;
   }
 }
 
@@ -35,4 +38,9 @@ std::string processCommandLineArguments::getLocationOfStyleFile() const
 {
   assert(_jsonFile.length() != 0);
   return _jsonFile;
+}
+
+bool processCommandLineArguments::getKeywordsOnlyFlag() const
+{
+  return _keywordsOnly;
 }
