@@ -23,11 +23,12 @@ void lineParser::checkForAnyDelimiterInCurrentLine(std::string &line) const
   }
 }
 
-void lineParser::checkIfStringRequiresStyleAdjustment(std::string &line) const
+void lineParser::checkIfStringRequiresStyleAdjustment(std::string &line, bool &containsKeyword,
+  bool &surpressKeyword) const
 {
   for (const auto entry : _keywordToStyle)
     if (line.find(entry.getKeyword()) != std::string::npos)
-      applyLineFormating(entry, line);
+      applyLineFormating(entry, line, containsKeyword, surpressKeyword);
 }
 
 void lineParser::removeContentBetweenDelimiter(const std::string &startDelimiter, const std::string &endDelimiter,
@@ -63,9 +64,11 @@ void lineParser::removeContentBetweenDelimiter(const std::string &startDelimiter
   }
 }
 
-void lineParser::applyLineFormating(const styling &style, std::string &line) const
+void lineParser::applyLineFormating(const styling &style, std::string &line, bool &containsKeyword,
+  bool &surpressKeyword) const
 {
   const auto keyword = style.getKeyword();
+  const auto gatherStatistics = style.getGatherStatistics();
   const auto applyAtLocation = style.getStylingLocation();
   const auto color = style.getColor();
   const auto lineStyle = style.getStyle();
@@ -76,9 +79,12 @@ void lineParser::applyLineFormating(const styling &style, std::string &line) con
 
   const auto position = line.find(keyword);
   const auto length = keyword.length();
+  containsKeyword = false;
+  surpressKeyword = style.getSurpressKeywordFlag();
 
   if (position != std::string::npos)
   {
+    containsKeyword = true;
     if (applyAtLocation == std::string("preKeyword"))
       line = lineStyle + color + line.substr(0, position) + format::NORMAL + color::WHITE + line.substr(position);
     else if (applyAtLocation == std::string("onKeyword"))
@@ -90,16 +96,8 @@ void lineParser::applyLineFormating(const styling &style, std::string &line) con
     else if (applyAtLocation == std::string("everywhere"))
       line = lineStyle + color + line + format::NORMAL + color::WHITE;
   }
-  // auto pos   = line.find("Processing");
-  // int length = 10;
-  // if (pos != std::string::npos) {
-  //   line = line.substr(0, pos + length) + BLUE + BOLD + line.substr(pos + length, line.size() - (pos + length)) + NORMAL + WHITE;
-  //   returnValue = OK;
-  // }
 
-  // pos = line.find("Waf: Entering directory");
-  // if (pos != std::string::npos) {
-  //   line = GREEN + line + WHITE;
-  //   returnValue = OK;
-  // }
+  // if we want to get some statistics about the current line, we need to store it to process it later
+  if (gatherStatistics)
+    style.writeLineContainingKeyword(line);
 }

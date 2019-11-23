@@ -14,8 +14,9 @@ class styling
 {
   public:
     styling(const std::string keyword, const bool gatherStatistics, const std::string applyStyling,
-      const std::string color, const std::string style) : _keyword(keyword), _gatherStatistics(gatherStatistics),
-      _applyStyling(applyStyling), _color(color), _style(style)
+      const std::string color, const std::string style, const bool surpressKeyword) : _keyword(keyword),
+      _gatherStatistics(gatherStatistics), _applyStyling(applyStyling), _color(color), _style(style),
+      _surpressKeyword(surpressKeyword)
     { }
 
     /// get the keyword
@@ -33,6 +34,12 @@ class styling
     /// get the style / format
     const std::string &getStyle() const;
 
+    /// get the surpress keyword flag
+    const bool &getSurpressKeywordFlag() const;
+
+    /// write a line containing the keyword to the occurance container
+    void writeLineContainingKeyword(std::string line) const;
+
   private:
     /// keyword to detect if a line gets formated
     const std::string _keyword;
@@ -49,8 +56,11 @@ class styling
     /// string containing the ascii format / style code
     const std::string _style;
 
+    /// flag indicating to surpress output individually
+    const bool _surpressKeyword;
+
     /// container of all the lines containing the keyword
-    std::vector<std::string> _occurances;
+    mutable std::vector<std::string> _occurances;
 };
 
 #endif
