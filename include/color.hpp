@@ -6,7 +6,7 @@
 struct color
 {
   // define color modifier
-  static std::string WHITE;
+  static std::string NEUTRAL;
   static std::string RED;
   static std::string GREEN;
   static std::string YELLOW;
