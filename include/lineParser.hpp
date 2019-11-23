@@ -34,8 +34,11 @@ class lineParser
           static_cast<const std::string>(entry["style"]);
         const bool surpressKeyword = entry.count("surpressKeyword") == 0 ? false :
           static_cast<const bool>(entry["surpressKeyword"]);
+        const bool removeDuplicates = entry.count("removeDuplicates") == 0 ? false :
+          static_cast<const bool>(entry["removeDuplicates"]);
 
-        _keywordToStyle.push_back(styling(keyword, gatherStatistics, applyStyle, color, style, surpressKeyword));
+        _keywordToStyle.push_back(styling(keyword, gatherStatistics, applyStyle, color, style, surpressKeyword,
+          removeDuplicates));
       }
 
       for (const auto entry : _jsonArgs["ignoreContentBetweenDelimiter"])

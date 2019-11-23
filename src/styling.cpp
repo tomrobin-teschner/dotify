@@ -23,7 +23,7 @@ const std::string &styling::getStylingLocation() const
 const std::string &styling::getColor() const
 {
   if (_color == std::string("white"))
-    return color::WHITE;
+    return color::NEUTRAL;
   else if (_color == std::string("red"))
     return color::RED;
   else if (_color == std::string("green"))
@@ -37,7 +37,7 @@ const std::string &styling::getColor() const
   else if (_color == std::string("yellow"))
     return color::YELLOW;
   else
-    return color::WHITE;
+    return color::NEUTRAL;
 }
 
 const std::string &styling::getStyle() const
@@ -59,6 +59,16 @@ const std::string &styling::getStyle() const
 const bool &styling::getSurpressKeywordFlag() const
 {
   return _surpressKeyword;
+}
+
+const bool &styling::getRemoveDuplicatesFlag() const
+{
+  return _removeDuplicates;
+}
+
+const std::vector<std::string> &styling::getRecordedStrings() const
+{
+  return _occurances;
 }
 
 void styling::writeLineContainingKeyword(std::string line) const

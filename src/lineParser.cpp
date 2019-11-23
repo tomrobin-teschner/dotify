@@ -26,7 +26,7 @@ void lineParser::checkForAnyDelimiterInCurrentLine(std::string &line) const
 void lineParser::checkIfStringRequiresStyleAdjustment(std::string &line, bool &containsKeyword,
   bool &surpressKeyword) const
 {
-  for (const auto entry : _keywordToStyle)
+  for (const auto &entry : _keywordToStyle)
     if (line.find(entry.getKeyword()) != std::string::npos)
       applyLineFormating(entry, line, containsKeyword, surpressKeyword);
 }
@@ -69,6 +69,7 @@ void lineParser::applyLineFormating(const styling &style, std::string &line, boo
 {
   const auto keyword = style.getKeyword();
   const auto gatherStatistics = style.getGatherStatistics();
+  const auto removeDuplicates = style.getRemoveDuplicatesFlag();
   const auto applyAtLocation = style.getStylingLocation();
   const auto color = style.getColor();
   const auto lineStyle = style.getStyle();
@@ -77,27 +78,39 @@ void lineParser::applyLineFormating(const styling &style, std::string &line, boo
     applyAtLocation == std::string("postKeyword") || applyAtLocation == std::string("everywhere")) &&
     "Could not determine where to apply line formating.");
 
-  const auto position = line.find(keyword);
-  const auto length = keyword.length();
   containsKeyword = false;
   surpressKeyword = style.getSurpressKeywordFlag();
+
+  // check if string already printed to screen and whether we want to surpress it or not
+  if (removeDuplicates)
+  {
+    const auto messages = style.getRecordedStrings();
+    const auto found = std::find(messages.begin(), messages.end(), line);
+    if (found != messages.end())
+    {
+      surpressKeyword = true;
+    }
+  }
+
+  // if we want to get some statistics about the current line, we need to store it to process it later
+  if (gatherStatistics || removeDuplicates)
+    style.writeLineContainingKeyword(line);
+
+  const auto position = line.find(keyword);
+  const auto length = keyword.length();
 
   if (position != std::string::npos)
   {
     containsKeyword = true;
     if (applyAtLocation == std::string("preKeyword"))
-      line = lineStyle + color + line.substr(0, position) + format::NORMAL + color::WHITE + line.substr(position);
+      line = lineStyle + color + line.substr(0, position) + format::NORMAL + color::NEUTRAL + line.substr(position);
     else if (applyAtLocation == std::string("onKeyword"))
-      line = line.substr(0, position) + lineStyle + color + keyword + format::NORMAL + color::WHITE +
+      line = line.substr(0, position) + lineStyle + color + keyword + format::NORMAL + color::NEUTRAL +
         line.substr(position + length);
     else if (applyAtLocation == std::string("postKeyword"))
       line = line.substr(0, position + length) + lineStyle + color + line.substr(position + length) + format::NORMAL +
-        color::WHITE;
+        color::NEUTRAL;
     else if (applyAtLocation == std::string("everywhere"))
-      line = lineStyle + color + line + format::NORMAL + color::WHITE;
+      line = lineStyle + color + line + format::NORMAL + color::NEUTRAL;
   }
-
-  // if we want to get some statistics about the current line, we need to store it to process it later
-  if (gatherStatistics)
-    style.writeLineContainingKeyword(line);
 }

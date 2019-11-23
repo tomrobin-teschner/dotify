@@ -1,7 +1,7 @@
 #include "color.hpp"
 
 // define color modifier
-std::string color::WHITE   = "\x1b[39m";
+std::string color::NEUTRAL   = "\x1b[39m";
 std::string color::RED     = "\x1b[31m";
 std::string color::GREEN   = "\x1b[32m";
 std::string color::YELLOW  = "\x1b[33m";

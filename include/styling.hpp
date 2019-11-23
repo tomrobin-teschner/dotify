@@ -14,9 +14,9 @@ class styling
 {
   public:
     styling(const std::string keyword, const bool gatherStatistics, const std::string applyStyling,
-      const std::string color, const std::string style, const bool surpressKeyword) : _keyword(keyword),
-      _gatherStatistics(gatherStatistics), _applyStyling(applyStyling), _color(color), _style(style),
-      _surpressKeyword(surpressKeyword)
+      const std::string color, const std::string style, const bool surpressKeyword, const bool removeDuplicates)
+      : _keyword(keyword), _gatherStatistics(gatherStatistics), _applyStyling(applyStyling), _color(color),
+      _style(style), _surpressKeyword(surpressKeyword), _removeDuplicates(removeDuplicates)
     { }
 
     /// get the keyword
@@ -36,6 +36,12 @@ class styling
 
     /// get the surpress keyword flag
     const bool &getSurpressKeywordFlag() const;
+
+    /// get the remove duplicates flag
+    const bool &getRemoveDuplicatesFlag() const;
+
+    /// get the vector containing all recorded strings
+    const std::vector<std::string> &getRecordedStrings() const;
 
     /// write a line containing the keyword to the occurance container
     void writeLineContainingKeyword(std::string line) const;
@@ -58,6 +64,9 @@ class styling
 
     /// flag indicating to surpress output individually
     const bool _surpressKeyword;
+
+    /// flag indicating if duplicate strings should be removed
+    const bool _removeDuplicates;
 
     /// container of all the lines containing the keyword
     mutable std::vector<std::string> _occurances;
