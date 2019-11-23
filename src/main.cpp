@@ -9,14 +9,10 @@
 #include "include/processCommandLineArguments.hpp"
 #include "include/lineParser.hpp"
 
-void sighandler(int sig = 0) {
-  std::exit(0);
-}
-
 int main(int argc, char **argv)
 {
   // handle user-interruption
-  signal(SIGINT, &sighandler);
+  signal(SIGINT, [](int sig = 0){std::exit(0);});
 
   const processCommandLineArguments comArgs(argc, argv);
   fileReader styleFile(comArgs.getLocationOfStyleFile());
