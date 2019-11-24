@@ -19,7 +19,8 @@ void lineParser::checkForAnyDelimiterInCurrentLine(std::string &line) const
     const auto start = std::get<0>(delimiterTuple);
     const auto end = std::get<1>(delimiterTuple);
     const auto replaceBy = std::get<2>(delimiterTuple);
-    removeContentBetweenDelimiter(start, end, replaceBy, line);
+    const auto mustContain = std::get<3>(delimiterTuple);
+    removeContentBetweenDelimiter(start, end, replaceBy, mustContain, line);
   }
 }
 
@@ -32,9 +33,8 @@ void lineParser::checkIfStringRequiresStyleAdjustment(std::string &line, bool &c
 }
 
 void lineParser::removeContentBetweenDelimiter(const std::string &startDelimiter, const std::string &endDelimiter,
-  const std::string &replaceBy, std::string &line) const
+  const std::string &replaceBy, const std::string mustContain, std::string &line) const
 {
-  // replace types by <...>
   long unsigned pos = 0;
   long unsigned length = 0;
   int count = 0;
@@ -53,7 +53,10 @@ void lineParser::removeContentBetweenDelimiter(const std::string &startDelimiter
     }
     if (line.substr(i, endDelimiter.length()) == endDelimiter)
       count--;
-    if (containsDelimiters && count == 0)
+    bool contentShouldBeRemoved = true;
+    if (mustContain.length() != 0)
+      contentShouldBeRemoved = line.find(mustContain) != std::string::npos;
+    if (containsDelimiters && count == 0 && contentShouldBeRemoved)
     {
       length = i - pos + 1;
       line = line.replace(pos, length, startDelimiter + replaceBy + endDelimiter);

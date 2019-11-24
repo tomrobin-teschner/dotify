@@ -12,7 +12,7 @@
 int main(int argc, char **argv)
 {
   // handle user-interruption
-  signal(SIGINT, [](int sig = 0){std::exit(0);});
+  signal(SIGINT, [](int sig = 0){std::exit(sig);});
 
   const processCommandLineArguments comArgs(argc, argv);
   fileReader styleFile(comArgs.getLocationOfStyleFile());
