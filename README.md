@@ -25,7 +25,7 @@ cat textFileToParse | /path/to/parser -f /path/to/inputFile.json
 Alternatively you can run the parser on the output of a different program to parse its output
 
 ```bash
-/path/to/programm | /path/to/parser -f /path/to/inputFile.json
+/path/to/programm | tee log | /path/to/parser -f /path/to/inputFile.json
 ```
 
 ## Command line arguments
