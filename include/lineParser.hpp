@@ -49,8 +49,10 @@ class lineParser
         const std::string end = entry["endingDelimiter"];
         const std::string replaceBy = entry.count("replaceContentBy") == 0 ? std::string("...") :
           static_cast<const std::string>(entry["replaceContentBy"]);
+        const std::string mustContain = entry.count("mustContain") == 0 ? std::string("") :
+          static_cast<const std::string>(entry["mustContain"]);
 
-        _delimiters.push_back(std::make_tuple(start, end, replaceBy));
+        _delimiters.push_back(std::make_tuple(start, end, replaceBy, mustContain));
       }
     }
 
@@ -63,10 +65,12 @@ class lineParser
     /// check if the current line requires formating
     void checkIfStringRequiresStyleAdjustment(std::string &line, bool &containsKeyword, bool &surpressKeyword) const;
 
+    /// print statistics
+
   private:
     /// check if the current line contains delimiter between which the content is supposed to be removed
     void removeContentBetweenDelimiter(const std::string &startDelimiter, const std::string &endDelimiter,
-      const std::string &replaceBy, std::string &line) const;
+      const std::string &replaceBy, const std::string mustContain, std::string &line) const;
 
     /// apply color and formating to line
     void applyLineFormating(const styling &style, std::string &line, bool &containsKeyword, bool &surpressKeyword)
@@ -83,7 +87,7 @@ class lineParser
     std::vector<styling> _keywordToStyle;
 
     /// vector containing the delimiters between which the content is reduced to a user-defined string
-    std::vector<std::tuple<std::string, std::string, std::string>> _delimiters;
+    std::vector<std::tuple<std::string, std::string, std::string, std::string>> _delimiters;
 };
 
 #endif
