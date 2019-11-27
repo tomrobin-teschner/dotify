@@ -1,12 +1,12 @@
 ## Introduction
 
 The goal of this program is to take an input from the command line, either by piping the output of a program through
-the parser or by listening to the output of a program and format the output according to specific rules that are
+the parser or by listening to the output of a program, and format the output according to specific rules that are
 defined through a JSON input file.
 
 ## Installation
 
-To compile the praser, simply run
+To compile the parser, simply run
 
 ```bash
 make
@@ -36,17 +36,17 @@ The following command line arguments are supported
 - **-f**,**--file** Path to the `JSON` input file. Without this the parser will effectively just print the text that it
 receives.
 - **-k**,**--keywordsOnly** Only print string to screen if it contains one of the keywords specified in the `JSON` file.
-This is usefull if a lot of additional lines are printed that are difficult or cumersome to surpress through the
-`ignoreCompleteLineIfItContainsSubstring` property (see [JSON file explanation](#input-file-for-formating-text))
+This is useful if a lot of additional lines are printed that are difficult or cumersome to suppress through the
+`ignoreCompleteLineIfItContainsSubstring` property (see [JSON file explanation](#input-file-for-formatting-text))
 
-## Input file for formating text
+## Input file for formatting text
 
 The following shows the basic structure of the input file with simple examples, provided in `JSON` format
 
 ```json
 {
   "ignoreCompleteLineIfItContainsSubstring" : [
-    "should be surpressed"
+    "should be suppressed"
   ],
   "ignoreContentBetweenDelimiter" : [
     {
@@ -70,9 +70,9 @@ The following shows the basic structure of the input file with simple examples, 
 Suppose the above is stored as "example.json", consider the following example
 
 ```bash
-name@pc:~$ printf "This string should be surpressed\nerror when compiling file containing container::data<std::vector<int>, std::vector<double>>\nerror when compiling file conng container::data<std::vector<int>, std::vector<double>>\n" > log
+name@pc:~$ printf "This string should be suppressed\nerror when compiling file containing container::data<std::vector<int>, std::vector<double>>\nerror when compiling file conng container::data<std::vector<int>, std::vector<double>>\n" > log
 name@pc:~$ cat log
-This string should be surpressed
+This string should be suppressed
 error when compiling file containing container::data<std::vector<int>, std::vector<double>>
 error when compiling file containing container::data<std::vector<int>, std::vector<double>>
 name@pc:~$ cat log | /path/to/parser -f /path/to/example.json
@@ -83,32 +83,32 @@ name@pc:~$ cat log | /path/to/parser -f /path/to/example.json
 There are 3 sections that can be specified in the input file, which are
 
 - `ignoreCompleteLineIfItContainsSubstring`: In here comes a list of all strings that should be removed from the output.
-A string will be removed from the output as long as parts of the string match one of the statesments in this list.
+A string will be removed from the output as long as parts of the string match one of the statements in this list.
 
-- `ignoreContentBetweenDelimiter`: This property defines delimiters which are used to surpress content between those
+- `ignoreContentBetweenDelimiter`: This property defines delimiters which are used to suppress content between those
 delimiters. Unlike the `ignoreCompleteLineIfItContainsSubstring` property, this only acts locally on strings between the
 delimiter. Furthermore, we can provide two additional arguments `replaceContentBy` and `mustContain`, which provide
 fine grained control over the content between the delimiters.
-  - `replaceContentBy` defines the string which will be printed instead of the actual content between the delimtiers, if
+  - `replaceContentBy` defines the string which will be printed instead of the actual content between the delimiters, if
   this entry is not provided, it will default to "...".
   - `mustContain` specifies a string that must be included between the delimiters if the content is to be replaced. This
   is useful if there are several delimiters of the same type but with different content between those. Regular
   expressions are currently not allowed for performance reasons.
 
-- `styleLineContainingKeywords` This list defines keywords and how they should be formated when printed to screen. In
-the above example the keyword is `error`, which should be printed in `red` using a `bold` formating for the text. A
+- `styleLineContainingKeywords` This list defines keywords and how they should be formatted when printed to screen. In
+the above example the keyword is `error`, which should be printed in `red` using a `bold` formatting for the text. A
 complete list of allowed entries is as follows:
   - `keyword` This is the keyword to be matched. If the `keyword` is encountered in a string, the line will be formated
   according to the parameters set for this `keyword`.
   - `removeDuplicates` A boolean flag indicating if duplicate entries should be shown or removed from the output. This
-  is useful for cyclig dependencies where the same message may be printed more than once. As shown in the example above,
+  is useful for cyclic dependencies where the same message may be printed more than once. As shown in the example above,
   strings that are identical will not be printed twice if this flag is set to true.
-  - `applyStyle` This entry determines how the formating should be applied to the line, specifically, it determines
-  which portion of the string are colored and formated. The following entries are supported:
-    - `preKeyword` Everything before the `keyword` will be formated.
-    - `onKeyword` Only the `keyword` will be formated.
-    - `postKeyword` Everything after the `keyword` will be formated.
-    - `everywhere` Everything will be formated, as long as the string contains the `keyword`.
+  - `applyStyle` This entry determines how the formatting should be applied to the line, specifically, it determines
+  which portion of the string are colored and formatted. The following entries are supported:
+    - `preKeyword` Everything before the `keyword` will be formatted.
+    - `onKeyword` Only the `keyword` will be formatted.
+    - `postKeyword` Everything after the `keyword` will be formatted.
+    - `everywhere` Everything will be formatted, as long as the string contains the `keyword`.
   - `color` This is the color which the text should take, the following colors are supported:
     - `neutral` (default background color)
     - `red`
@@ -117,8 +117,8 @@ complete list of allowed entries is as follows:
     - `blue`
     - `magenta`
     - `cyan`
-  - `format` This is the formating that should be applied to the text, the following entries are supported:
-    - `normal` (default text formating)
+  - `format` This is the formatting that should be applied to the text, the following entries are supported:
+    - `normal` (default text formatting)
     - `bold`
     - `dim` (darker than base color)
     - `underline`
@@ -210,7 +210,7 @@ will result in the following output:
 
 ![Example1](images/example2.png)
 
-We may further wish to surpress clutter by only printing strings that contain keywords. We use the `-k` command line
+We may further wish to suppress clutter by only printing strings that contain keywords. We use the `-k` command line
 argument for this. Thus, our command becomes
 
 ```bash
