@@ -1,5 +1,5 @@
 ### name of application
-APP_NAME = parser
+APP_NAME = dotify
 
 ### compiler
 CXX = g++
