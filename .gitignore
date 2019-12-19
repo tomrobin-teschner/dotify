@@ -5,6 +5,7 @@
 
 # ignore custom folders
 .vscode/
+build/
 
 # ignore executable
-parser
+dotify
