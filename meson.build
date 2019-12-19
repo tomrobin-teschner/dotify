@@ -11,6 +11,7 @@ sources = [
             'src/processCommandLineArguments.cpp',
             'src/styling.cpp'
           ]
+
 # include directories
 inc = include_directories('include/')
 
