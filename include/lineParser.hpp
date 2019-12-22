@@ -16,43 +16,52 @@ class lineParser
   public:
     lineParser(const nlohmann::json &jsonArgs) : _jsonArgs(jsonArgs)
     {
-      for (const auto entry : _jsonArgs["ignoreCompleteLineIfItContainsSubstring"])
-        _ignoreLineContainingString.push_back(entry);
-
-      for (const auto entry : _jsonArgs["styleLineContainingKeywords"])
+      if (_jsonArgs.find("ignoreCompleteLineIfItContainsSubstring") != _jsonArgs.end())
       {
-        assert(entry.count("keyword") != 0 && "No keyword defined in styleLineContainingKeywords");
-        assert(entry.count("applyStyle") != 0 && "No style defined in styleLineContainingKeywords");
-
-        const std::string keyword = entry["keyword"];
-        const bool gatherStatistics = entry.count("gatherStatistics") == 0 ? false : 
-          static_cast<const bool>(entry["gatherStatistics"]);
-        const std::string applyStyle = entry["applyStyle"];
-        const std::string color = entry.count("color") == 0 ? std::string("white") :
-          static_cast<const std::string>(entry["color"]);
-        const std::string style = entry.count("style") == 0 ? std::string("normal") :
-          static_cast<const std::string>(entry["style"]);
-        const bool surpressKeyword = entry.count("surpressKeyword") == 0 ? false :
-          static_cast<const bool>(entry["surpressKeyword"]);
-        const bool removeDuplicates = entry.count("removeDuplicates") == 0 ? false :
-          static_cast<const bool>(entry["removeDuplicates"]);
-
-        _keywordToStyle.push_back(styling(keyword, gatherStatistics, applyStyle, color, style, surpressKeyword,
-          removeDuplicates));
+        for (const auto entry : _jsonArgs["ignoreCompleteLineIfItContainsSubstring"])
+          _ignoreLineContainingString.push_back(entry);
       }
 
-      for (const auto entry : _jsonArgs["ignoreContentBetweenDelimiter"])
+      if (_jsonArgs.find("styleLineContainingKeywords") != _jsonArgs.end())
       {
-        assert(entry.count("startingDelimiter") != 0 && "No delimiter defined in ignoreContentBetweenDelimiter");
-        assert(entry.count("endingDelimiter") != 0 && "No delimiter defined in ignoreContentBetweenDelimiter");
-        const std::string start = entry["startingDelimiter"];
-        const std::string end = entry["endingDelimiter"];
-        const std::string replaceBy = entry.count("replaceContentBy") == 0 ? std::string("...") :
-          static_cast<const std::string>(entry["replaceContentBy"]);
-        const std::string mustContain = entry.count("mustContain") == 0 ? std::string("") :
-          static_cast<const std::string>(entry["mustContain"]);
+        for (const auto entry : _jsonArgs["styleLineContainingKeywords"])
+        {
+          assert(entry.count("keyword") != 0 && "No keyword defined in styleLineContainingKeywords");
+          assert(entry.count("applyStyle") != 0 && "No style defined in styleLineContainingKeywords");
 
-        _delimiters.push_back(std::make_tuple(start, end, replaceBy, mustContain));
+          const std::string keyword = entry["keyword"];
+          const bool gatherStatistics = entry.count("gatherStatistics") == 0 ? false :
+            static_cast<const bool>(entry["gatherStatistics"]);
+          const std::string applyStyle = entry["applyStyle"];
+          const std::string color = entry.count("color") == 0 ? std::string("white") :
+            static_cast<const std::string>(entry["color"]);
+          const std::string style = entry.count("style") == 0 ? std::string("normal") :
+            static_cast<const std::string>(entry["style"]);
+          const bool surpressKeyword = entry.count("surpressKeyword") == 0 ? false :
+            static_cast<const bool>(entry["surpressKeyword"]);
+          const bool removeDuplicates = entry.count("removeDuplicates") == 0 ? false :
+            static_cast<const bool>(entry["removeDuplicates"]);
+
+          _keywordToStyle.push_back(styling(keyword, gatherStatistics, applyStyle, color, style, surpressKeyword,
+            removeDuplicates));
+        }
+      }
+
+      if (_jsonArgs.find("ignoreContentBetweenDelimiter") != _jsonArgs.end())
+      {
+        for (const auto entry : _jsonArgs["ignoreContentBetweenDelimiter"])
+        {
+          assert(entry.count("startingDelimiter") != 0 && "No delimiter defined in ignoreContentBetweenDelimiter");
+          assert(entry.count("endingDelimiter") != 0 && "No delimiter defined in ignoreContentBetweenDelimiter");
+          const std::string start = entry["startingDelimiter"];
+          const std::string end = entry["endingDelimiter"];
+          const std::string replaceBy = entry.count("replaceContentBy") == 0 ? std::string("...") :
+            static_cast<const std::string>(entry["replaceContentBy"]);
+          const std::string mustContain = entry.count("mustContain") == 0 ? std::string("") :
+            static_cast<const std::string>(entry["mustContain"]);
+
+          _delimiters.push_back(std::make_tuple(start, end, replaceBy, mustContain));
+        }
       }
     }
 
