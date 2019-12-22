@@ -22,6 +22,12 @@
       "style" : "bold"
     },
     {
+      "keyword" : "Aborted (core dumped)",
+      "applyStyle" : "everywhere",
+      "color" : "red",
+      "style" : "bold"
+    },
+    {
       "keyword" : "warning",
       "gatherStatistics" : true,
       "removeDuplicates" : true,
