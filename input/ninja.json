@@ -1,0 +1,41 @@
+{
+  "ignoreContentBetweenDelimiter" :
+  [
+    {
+      "startingDelimiter" : "<",
+      "endingDelimiter" : ">",
+      "replaceContentBy" : "..."
+    },
+    {
+      "startingDelimiter" : "[",
+      "endingDelimiter" : "]",
+      "replaceContentBy" : "with type ...",
+      "mustContain" : "with"
+    }
+  ],
+  "styleLineContainingKeywords" :
+  [
+    {
+      "keyword" : "FAILED:",
+      "applyStyle" : "everywhere",
+      "color" : "red",
+      "style" : "bold"
+    },
+    {
+      "keyword" : "warning",
+      "gatherStatistics" : true,
+      "removeDuplicates" : true,
+      "applyStyle" : "onKeyword",
+      "color" : "magenta",
+      "style" : "bold"
+    },
+    {
+      "keyword" : "error",
+      "gatherStatistics" : true,
+      "removeDuplicates" : true,
+      "applyStyle" : "onKeyword",
+      "color" : "red",
+      "style" : "bold"
+    }
+  ]
+}
