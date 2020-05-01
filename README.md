@@ -36,7 +36,7 @@ The following command line arguments are supported
 - **-f**,**--file** Path to the `JSON` input file. Without this the parser will effectively just print the text that it
 receives.
 - **-k**,**--keywordsOnly** Only print string to screen if it contains one of the keywords specified in the `JSON` file.
-This is useful if a lot of additional lines are printed that are difficult or cumersome to suppress through the
+This is useful if a lot of additional lines are printed that are difficult or cumbersome to suppress through the
 `ignoreCompleteLineIfItContainsSubstring` property (see [JSON file explanation](#input-file-for-formatting-text))
 
 ## Input file for formatting text
