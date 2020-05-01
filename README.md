@@ -108,7 +108,7 @@ complete list of allowed entries is as follows:
     - `preKeyword` Everything before the `keyword` will be formatted.
     - `onKeyword` Only the `keyword` will be formatted.
     - `postKeyword` Everything after the `keyword` will be formatted.
-    - `everywhere` Everything will be formatted, as long as the string contains the `keyword`.
+    - `everywhere` Everything (on current line) will be formatted, as long as the string contains the `keyword`.
   - `color` This is the color which the text should take, the following colors are supported:
     - `neutral` (default background color)
     - `red`
