@@ -160,7 +160,6 @@ and we have a corresponding input file like so:
   "styleLineContainingKeywords" : [
     {
       "keyword" : "warning",
-      "gatherStatistics" : true,
       "removeDuplicates" : true,
       "applyStyle" : "onKeyword",
       "color" : "magenta",
