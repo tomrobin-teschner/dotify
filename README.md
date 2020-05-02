@@ -12,7 +12,14 @@ To compile the parser, simply run
 make
 ```
 
-and you should be good to go. Note that this requires a C++ compiler that is compatible with the 2014 C++ standard.
+and you should be good to go. Note that this requires a C++ compiler that is compatible with the 2014 C++ standard. Or, if you feel a bit adventurous try the following magic lines: 
+
+```bash
+meson build && ninja -C build
+```
+
+(your future self will thank you for learning meson, honestly! ...). More info: https://mesonbuild.com/Quick-guide.html
+
 
 ## Run
 
