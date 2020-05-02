@@ -39,7 +39,7 @@ Alternatively you can run the parser on the output of a different program to par
 To test the usage, try the following command (assuming dotify has been compiled into the bin directory)
 
 ```bash
-cat examples/templates.txt | tee log | build/dotify -f input/ninja.json
+cat examples/templates.txt | tee log | bin/dotify -f input/ninja.json
 ```
 
 you may wish to compare the output against the examples/templates.txt file.
