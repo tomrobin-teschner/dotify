@@ -6,7 +6,7 @@ defined through a JSON input file.
 
 ## Installation
 
-To compile the parser, simply run
+To compile dotify, simply run
 
 ```bash
 make
@@ -23,16 +23,16 @@ meson build && ninja -C build
 
 ## Run
 
-To use the parser on a static text file, you can use the following syntax
+To use dotify on a static text file, you can use the following syntax
 
 ```bash
-cat textFileToParse | /path/to/parser -f /path/to/inputFile.json
+cat textFileToParse | /path/to/dotify -f /path/to/inputFile.json
 ```
 
-Alternatively you can run the parser on the output of a different program to parse its output
+Alternatively you can run dotify on the output of a different program to parse its output
 
 ```bash
-/path/to/programm | tee log | /path/to/parser -f /path/to/inputFile.json
+/path/to/programm | tee log | /path/to/dotify -f /path/to/inputFile.json
 ```
 ## Example
 
@@ -49,7 +49,7 @@ you may wish to compare the output against the examples/templates.txt file.
 The following command line arguments are supported
 
 - **-h**,**--help** Prints the help with short description of argumentes and usage
-- **-f**,**--file** Path to the `JSON` input file. Without this the parser will effectively just print the text that it
+- **-f**,**--file** Path to the `JSON` input file. Without this, dotify will effectively just print the text that it
 receives.
 - **-k**,**--keywordsOnly** Only print string to screen if it contains one of the keywords specified in the `JSON` file.
 This is useful if a lot of additional lines are printed that are difficult or cumbersome to suppress through the
@@ -91,7 +91,7 @@ name@pc:~$ cat log
 This string should be suppressed
 error when compiling file containing container::data<std::vector<int>, std::vector<double>>
 error when compiling file containing container::data<std::vector<int>, std::vector<double>>
-name@pc:~$ cat log | /path/to/parser -f /path/to/example.json
+name@pc:~$ cat log | /path/to/dotify -f /path/to/example.json
 ```
 
 ![Example1](images/example1.png)
@@ -142,8 +142,7 @@ complete list of allowed entries is as follows:
 
 ## Example
 
-now let's consider a small but real life example. Suppose we have the following file that we want to put through the
-parser:
+now let's consider a small but real life example. Suppose we have the following file that we want to put through dotify:
 
 ```
 [1/4] Compiling src/foo.cpp
@@ -215,10 +214,10 @@ and we have a corresponding input file like so:
 }
 ```
 
-Running the above text through the parser using
+Running the above text through dotify using
 
 ```bash
-user@pc:~$ cat /path/to/logFile | /path/to/parser -f /path/to/inputFile.json
+user@pc:~$ cat /path/to/logFile | /path/to/dotify -f /path/to/inputFile.json
 ```
 
 will result in the following output:
@@ -229,7 +228,7 @@ We may further wish to suppress clutter by only printing strings that contain ke
 argument for this. Thus, our command becomes
 
 ```bash
-user@pc:~$ cat /path/to/logFile | /path/to/parser -k -f /path/to/inputFile.json
+user@pc:~$ cat /path/to/logFile | /path/to/dotify -k -f /path/to/inputFile.json
 ```
 
 and our output

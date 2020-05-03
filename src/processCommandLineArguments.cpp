@@ -7,14 +7,14 @@ void processCommandLineArguments::printHelp()
 {
   std::cout << "This program removes unwanted strings from screen while reformating strings of interest" << std::endl;
   std::cout << std::endl;
-  std::cout << "Usage: To invoke the parser on a text file use" << std::endl;
+  std::cout << "Usage: To invoke dotify on a text file use" << std::endl;
   std::cout << std::endl;
-  std::cout << "   cat fileName | parser" << std::endl;
+  std::cout << "   cat fileName | path/to/dotify" << std::endl;
   std::cout << std::endl;
   std::cout << "Alternatively, you can invoke a command that produces output to the screen which should be parsed, ";
   std::cout << "and then pass that text to a log file which is then parsed, as:" << std::endl;
   std::cout << std::endl;
-  std::cout << "   commandToInvoke | tee log | parser" << std::endl;
+  std::cout << "   command/to/invoke | tee log | path/to/dotify" << std::endl;
   std::cout << std::endl;
   std::cout << "If the intermediate log file is not required, the tee command may be ommitted." << std::endl;
   std::cout << std::endl;
